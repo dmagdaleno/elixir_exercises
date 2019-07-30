@@ -4,3 +4,7 @@ defmodule Sum do
 end
 
 Sum.up_to(10)
+# 55
+
+Sum.up_to(0)
+# 0
