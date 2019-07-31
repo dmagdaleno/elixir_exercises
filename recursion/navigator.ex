@@ -1,4 +1,5 @@
 defmodule Navigator do
+
   @max_depth 2
 
   def navigate(dir) do
