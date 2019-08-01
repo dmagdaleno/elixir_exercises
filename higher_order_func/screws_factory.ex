@@ -8,8 +8,10 @@ defmodule ScrewsFactory do
 
   def run_lazy(pieces) do
     pieces
-      |> Stream.map(&add_thread/1)
-      |> Stream.map(&add_head/1)
+      |> Stream.chunk(50)
+      |> Stream.flat_map(&add_thread/1)
+      |> Stream.chunk(100)
+      |> Stream.flat_map(&add_head/1)
       |> Enum.each(&output/1)
   end
   
