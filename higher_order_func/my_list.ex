@@ -24,3 +24,5 @@ end
 # MyList.map(items, fn item -> update_in(item.title, &String.upcase/1) end)
 #
 # MyList.reduce(items, 0, fn item, acc -> item.price + acc end)
+# MyList.reduce([10, 5, 5, 10], 0, &+/2)
+# MyList.reduce([100, 20, 400, 200], 100, &max/2)
