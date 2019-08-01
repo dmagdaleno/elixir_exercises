@@ -9,6 +9,11 @@ defmodule MyList do
   def map([head | tail], function) do
     [function.(head) | map(tail, function)]
   end
+
+  def reduce([], acc, _function), do: acc
+  def reduce([head | tail], acc, function) do
+    reduce(tail, function.(head, acc), function)
+  end
 end
 
 # MyList.each(items, fn item -> IO.puts item.title end)
@@ -16,3 +21,6 @@ end
 #
 # MyList.map(items, fn item -> %{title: item.title, price: item.price * 1.1} end)
 # MyList.map(items, fn item -> update_in(item.price, &(&1 * 1.1)) end)
+# MyList.map(items, fn item -> update_in(item.title, &String.upcase/1) end)
+#
+# MyList.reduce(items, 0, fn item, acc -> item.price + acc end)
